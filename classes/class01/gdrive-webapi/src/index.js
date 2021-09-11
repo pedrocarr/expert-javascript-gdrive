@@ -1,5 +1,6 @@
 import fs from 'fs'
 import https from 'https'
+import { logger } from './logger.js'
 
 const PORT = process.env.PORT || 3000
 
@@ -17,5 +18,8 @@ const server = https.createServer(
 
 const startServer = () => {
   const { address, port } = server.address()
+  logger.info(`app running at https://${address}:${port}`)
 }
+
+server.listen(PORT, startServer)
 
