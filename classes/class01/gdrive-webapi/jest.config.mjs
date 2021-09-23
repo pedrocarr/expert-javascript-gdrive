@@ -1,6 +1,4 @@
-/*
- * For a detailed explanation regarding each configuration property, visit:
- */
+
 
 export default {
 
@@ -10,53 +8,11 @@ export default {
 
   collectCoverage: true,
 
+
   coverageDirectory: "coverage",
 
 
   coverageProvider: "v8",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 };
