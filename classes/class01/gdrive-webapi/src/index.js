@@ -26,6 +26,7 @@ const server = https.createServer(
   routes.handler.bind(routes)
 )
 TextDecoderStream
+testing
 
 const startServer = () => {
   const { address, port } = server.address()
