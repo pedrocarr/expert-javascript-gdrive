@@ -20,9 +20,10 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => logger.info(`someone connected: ${socket.io}`))
 
+const routes = new Routes()
 const server = https.createServer(
   localHostSSL,
-  Routes
+  routes.handler.bind(routes)
 )
 
 const startServer = () => {
