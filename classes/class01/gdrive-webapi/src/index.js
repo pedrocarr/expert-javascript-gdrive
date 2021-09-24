@@ -25,6 +25,7 @@ const server = https.createServer(
   localHostSSL,
   routes.handler.bind(routes)
 )
+TextDecoderStream
 
 const startServer = () => {
   const { address, port } = server.address()
