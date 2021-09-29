@@ -20,12 +20,12 @@ export default class Routes {
     }
 
     async post(request, response) {
-        logger.info('ae')
+        logger.info('post')
         response.end()
     }
 
     async get(request, response) {
-        logger.info('ae')
+        logger.info('get')
         response.end()
     }
 
