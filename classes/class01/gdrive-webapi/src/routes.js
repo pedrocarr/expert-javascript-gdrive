@@ -1,4 +1,4 @@
-import { logger } from "./logger"
+import { logger } from "./logger.js"
 
 export default class Routes {
     io
@@ -30,6 +30,8 @@ export default class Routes {
     }
 
     handler(request, response) {
-        response.end('hello world')
+        response.setHeader('Access-Control-Allow-Origin','*')
+        const chosen = this[request.method.toLowerCase()] || this.defaultRoute
+        return chosen.apply(this, [request, response])
     }
 }
