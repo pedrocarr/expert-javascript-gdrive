@@ -1,9 +1,14 @@
 export default class Routes {
+    io
     constructor() {
 
     }
 
-    handler(resquest, response) {
+    setSocketInstance(io) {
+        this.io = io
+    }
+
+    handler(request, response) {
         response.end('hello world')
     }
 }

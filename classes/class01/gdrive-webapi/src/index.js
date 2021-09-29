@@ -10,6 +10,11 @@ const localHostSSL = {
   key: fs.readFileSync('./certificates/key.pem'),
   cert: fs.readFileSync('./certificates/cert.pem'),  
 }
+const routes = new Routes()
+const server = https.createServer(
+  localHostSSL,
+  routes.handler.bind(routes)
+)
 
 const io = new Server(server, {
   cors: {
@@ -18,15 +23,12 @@ const io = new Server(server, {
   }
 })
 
-io.on("connection", (socket) => logger.info(`someone connected: ${socket.io}`))
+routes.setSocketInstance(io)
 
-const routes = new Routes()
-const server = https.createServer(
-  localHostSSL,
-  routes.handler.bind(routes)
-)
-TextDecoderStream
-testing
+io.on("connection", (socket) => logger.info(`someone connected: ${socket.id}`))
+
+
+
 
 const startServer = () => {
   const { address, port } = server.address()
