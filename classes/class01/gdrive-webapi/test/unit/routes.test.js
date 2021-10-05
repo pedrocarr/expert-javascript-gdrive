@@ -34,9 +34,18 @@ import Routes from '../../src/routes'
           setHeader: jest.fn(),
           writeHeader: jest.fn(),
           end: jest.fn()
-        }
+        },
+        values: () => Object.values(defaultParams)
       }
-      test.todo('given an inexistent route it should choose default route') 
+      test('given an inexistent route it should choose default route', () => {
+        const routes = new Routes()
+        const params = {
+          ...defaultParams
+        }
+
+        params.request.method = 'inexistent'
+        routes.handler(...params.values())
+      }) 
       test.todo('it should set any request with CORS enabled')
       test.todo('given method OPTIONS it should choose post route')
       test.todo('given method POST it should choose post route ')
