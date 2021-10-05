@@ -15,7 +15,7 @@ import Routes from '../../src/routes'
           emit: (event, message) => {}
         }
 
-        // routes.setSocketInstance(ioObj)
+        routes.setSocketInstance(ioObj)
         expect(routes.io).toStrictEqual(ioObj)
 
       })
