@@ -1,9 +1,9 @@
 import { 
   describe,
   test,
-  expect
+  expect,
+  jest
  } from '@jest/globals'
-import jestConfigMjs from '../../jest.config.mjs'
 import Routes from '../../src/routes'
 
  describe('#Routes test suite', () => {
@@ -45,6 +45,7 @@ import Routes from '../../src/routes'
 
         params.request.method = 'inexistent'
         routes.handler(...params.values())
+        expect(params.response.end).toHaveBeenCalledWith('hello world')
       }) 
       test.todo('it should set any request with CORS enabled')
       test.todo('given method OPTIONS it should choose post route')
