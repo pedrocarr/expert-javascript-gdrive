@@ -3,6 +3,7 @@ import {
   test,
   expect
  } from '@jest/globals'
+import jestConfigMjs from '../../jest.config.mjs'
 import Routes from '../../src/routes'
 
  describe('#Routes test suite', () => {
@@ -20,7 +21,25 @@ import Routes from '../../src/routes'
 
       })
    })
-   test('#test test ', () => {
-     expect(true).toBeTruthy()
+   describe('#handler', () => {
+      const defaultParams = {
+        request: {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          },
+          method: '',
+          body: {}
+        },
+        response: {
+          setHeader: jest.fn(),
+          writeHeader: jest.fn(),
+          end: jest.fn()
+        }
+      }
+      test.todo('given an inexistent route it should choose default route') 
+      test.todo('it should set any request with CORS enabled')
+      test.todo('given method OPTIONS it should choose post route')
+      test.todo('given method POST it should choose post route ')
+      test.todo('given method GET it should choose post route')
    })
  })
